@@ -15,16 +15,20 @@ public:
 	int longestPalindrome(string s) {
 		unordered_map<char, int> hash;
 		for (auto it = s.begin(); it != s.end(); ++it) {
-
+			hash[*it]++;
 		}
-	}
-	bool isPalindrome(string str) {
-		auto it_h = str.begin(), it_t = str.end() - 1;
-		while (it_h < it_t) {
-			if (*it_h != *it_t)
-				return false;
-			++it_h, --it_t;
+		int oddCount = 0;
+		int ans = 0;
+		for (auto i : hash) {
+			if (i.second & 1) {
+				++oddCount;
+				ans += i.second - 1;
+			}
+			else
+				ans += i.second;
 		}
-		return true;
+		if (oddCount > 0)
+			++ans;
+		return ans;
 	}
 };
