@@ -22,13 +22,13 @@ public:
 		if ((sum & 1) == 1) return false;
 		sum = sum >> 1;
 		vector<int> dp(sum + 1, 0);
-		for (int i = 1; i <= sum; ++i) {
-			for (int j = n - 1; j >= 0; --j) {
-				if (i >= nums[j]) {
-					dp[i] = max(dp[i], dp[i - nums[j]] + nums[j]);
-				}
-			}
-		}
+		for (int i = 0; i < n; ++i) {  
+            		for (int j = sum; j >= 1; --j) {  
+                		if (j >= nums[i]) {  
+                    			dp[j] = max(dp[j], nums[i] + dp[j - nums[i]]);  
+                		}  
+            		}  
+        	} 
 		return dp[sum] == sum;
 	}
 };
