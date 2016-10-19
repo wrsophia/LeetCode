@@ -17,9 +17,8 @@ public:
 		int resIndex;
 		for (int i = 0; i < number.size(); ++i) {
 			if (number[i] == target) {
-				if (rand() % alpha == 0)
+				if (rand() % (++alpha) == 0)
 					resIndex = i;
-				++alpha;
 			}
 		}
 		return resIndex;
