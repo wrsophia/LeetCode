@@ -4,14 +4,14 @@
 #include <sstream>
 using namespace std;
 
-//ɾ����������ͷ��ʼ���������ĳһλ������һλ����ô��Ӧ��ɾ����һλ����������һλС��ɾ�����һλ
-//�����Ҫɾ���ַ�����ͷ��0������Ҫ���ǿմ��������
+//删除方法：从头开始，如果发现某一位比它下一位大，那么就应该删掉这一位，若都比下一位小则删除最后一位
+//最后还需要删除字符串开头的0，并且要考虑空串的情况。
 
 class Solution {
 public:
 	string removeKdigits(string num, int k) {
 		string::iterator it;
-		for (int i = 0; i < k; ++i) {
+		for (int i = 0; i < k;) {
 			it = num.begin();
 			while (it != num.end() - 1 && *it <= *(it + 1)) {
 				++it;
