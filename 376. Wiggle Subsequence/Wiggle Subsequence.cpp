@@ -5,6 +5,7 @@
 using namespace std;
 
 //greedy
+//cnt变化的时候是开始上升或下降的第一个元素，但实际用的是上升或下降的最后一个元素
 
 class Solution {
 public:
