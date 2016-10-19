@@ -5,7 +5,7 @@
 using namespace std;
 
 //greedy
-//cntå˜åŒ–çš„æ—¶å€™æ˜¯å¼€å§‹ä¸Šå‡æˆ–ä¸‹é™çš„ç¬¬ä¸€ä¸ªå…ƒç´ ï¼Œä½†å®é™…ç”¨çš„æ˜¯ä¸Šå‡æˆ–ä¸‹é™çš„æœ€åä¸€ä¸ªå…ƒç´ 
+//cnt±ä»¯µÄÊ±ºòÊÇ¿ªÊ¼ÉÏÉı»òÏÂ½µµÄµÚÒ»¸öÔªËØ£¬µ«Êµ¼ÊÓÃµÄÊÇÉÏÉı»òÏÂ½µµÄ×îºóÒ»¸öÔªËØ
 
 class Solution {
 public:
@@ -13,13 +13,13 @@ public:
 		int n = nums.size();
 		if (n <= 1)  return n;
 		int idx = 1;
-		while (nums[idx] == nums[0]) ++idx;
+		while (idx < n && nums[idx] == nums[0]) ++idx;
 		bool flag;
 		if (nums[idx] > nums[0]) flag = true;
 		else flag = false;
 		
 		int cnt = 1;
-		for (int i = 1; i < n; ++i) {
+		for (int i = idx; i < n; ++i) {
 			if (nums[i] > nums[i - 1] && flag) {
 				flag = false;
 				++cnt;
