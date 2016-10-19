@@ -12,15 +12,20 @@ public:
 	int wiggleMaxLength(vector<int>& nums) {
 		int n = nums.size();
 		if (n <= 1)  return n;
-		bool flag = NULL;
+		int idx = 1;
+		while (nums[idx] == nums[0]) ++idx;
+		bool flag;
+		if (nums[idx] > nums[0]) flag = true;
+		else flag = false;
+		
 		int cnt = 1;
 		for (int i = 1; i < n; ++i) {
-			if (nums[i] > nums[i - 1] && (flag == NULL || !flag)) {
-				flag = true;
+			if (nums[i] > nums[i - 1] && flag) {
+				flag = false;
 				++cnt;
 			}
-			else if (nums[i] < nums[i - 1] && (flag == NULL || flag)) {
-				flag = false;
+			else if (nums[i] < nums[i - 1] && !flag) {
+				flag = true;
 				++cnt;
 			}
 		}
