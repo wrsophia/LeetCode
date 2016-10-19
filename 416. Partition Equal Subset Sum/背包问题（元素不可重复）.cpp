@@ -1,13 +1,6 @@
 #include <iostream>
 #include <cstdlib>
-#include <set>
 #include <vector>
-#include <queue>
-#include <stack>
-#include <algorithm>
-#include <string>
-#include <functional>
-#include <unordered_map>
 using namespace std;
 
 
