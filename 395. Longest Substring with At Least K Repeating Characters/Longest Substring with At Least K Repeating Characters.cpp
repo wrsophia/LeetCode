@@ -6,6 +6,8 @@
 #include <algorithm>
 using namespace std;
 
+//对于每个切分的子串，统计每个字符出现的次数，若遇到不符的字符就从该处切开，递归继续统计
+
 class Solution {
 public:
 	int longestSubstring(string s, int k) {
