@@ -31,11 +31,11 @@ public:
         vector<pair<int, int> >::iterator it_right = val_idx.end() - 1;
         
         while (it_left < it_right) {
-            if ((*it_left).first + (*it_right).first == target) {
-                result.push_back((*it_left).second);
-                result.push_back((*it_right).second);
+            if (it_left->first + it_right->first == target) {
+                result.push_back(it_left->second);
+                result.push_back(it_right->second);
                 break;
-            } else if ((*it_left).first + (*it_right).first < target) {
+            } else if (it_left->first + it_right->first < target) {
                 ++it_left;
             } else {
                 --it_right;
